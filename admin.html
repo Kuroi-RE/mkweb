@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin - Panel</title>
+    <style>
+      :root {
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --accent: #2b6cb0;
+        --muted: #6b7280;
+        --danger: #e53e3e;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial;
+        color: #111;
+        background: var(--bg);
+      }
+      .app {
+        display: flex;
+        min-height: 100vh;
+      }
+      /* Sidebar */
+      .sidebar {
+        width: 260px;
+        background: linear-gradient(180deg, #fff, #f7fbff);
+        border-right: 1px solid #e6eef8;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .brand {
+        font-weight: 700;
+        color: var(--accent);
+        font-size: 18px;
+      }
+      .nav {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .nav button {
+        background: transparent;
+        border: none;
+        text-align: left;
+        padding: 10px 12px;
+        border-radius: 8px;
+        color: #123;
+        cursor: pointer;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .nav button:hover {
+        background: #eef6ff;
+      }
+      .nav button.active {
+        background: var(--accent);
+        color: #fff;
+      }
+      .nav .logout {
+        margin-top: auto;
+        color: var(--danger);
+        font-weight: 600;
+      }
+
+      /* Main */
+      .main {
+        flex: 1;
+        padding: 28px;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .card {
+        background: var(--card);
+        padding: 18px;
+        border-radius: 10px;
+        box-shadow: 0 1px 2px rgba(16, 24, 40, 0.03);
+        border: 1px solid #eef2ff;
+      }
+
+      /* table */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 10px 12px;
+        border-bottom: 1px solid #f2f4f8;
+        text-align: left;
+        font-size: 14px;
+      }
+      th {
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .actions button {
+        margin-right: 8px;
+        padding: 6px 8px;
+        border-radius: 6px;
+        border: 1px solid #e6eef8;
+        background: #fff;
+        cursor: pointer;
+      }
+      .actions button.edit {
+        background: #eef6ff;
+        border-color: #cfe6ff;
+      }
+      .actions button.del {
+        background: #fff5f5;
+        border-color: #ffd6d6;
+        color: var(--danger);
+      }
+
+      /* forms */
+      .form-row {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+      .form-row input {
+        flex: 1;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #e6eef8;
+      }
+      .btn {
+        display: inline-block;
+        padding: 10px 14px;
+        background: var(--accent);
+        color: #fff;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+      }
+
+      /* responsive */
+      @media (max-width: 720px) {
+        .sidebar {
+          display: none;
+        }
+        .app {
+          flex-direction: column;
+        }
+        .main {
+          padding: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar card">
+        <div>
+          <div class="brand">MKWeb Admin</div>
+          <div style="color: var(--muted); font-size: 13px; margin-top: 6px">
+            Dashboard sederhana
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Main navigation">
+          <button id="nav-users" class="active" onclick="show('users')">
+            Data user
+          </button>
+          <button id="nav-products" onclick="show('products')">
+            Kelola Produk
+          </button>
+          <button id="nav-password" onclick="show('password')">
+            Edit Password
+          </button>
+          <button id="nav-logout" class="logout" onclick="show('logout')">
+            Logout
+          </button>
+        </nav>
+      </aside>
+
+      <main class="main">
+        <div class="header">
+          <h2 id="page-title">Data user</h2>
+          <div style="color: var(--muted)">
+            Selamat datang, <strong>Administrator</strong>
+          </div>
+        </div>
+
+        <section id="content">
+          <!-- Users -->
+          <div id="section-users" class="card">
+            <h3 style="margin-top: 0">Daftar Pengguna</h3>
+            <p style="color: var(--muted); margin-top: 0">
+              Contoh data user — gunakan backend untuk mengganti data ini.
+            </p>
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nama</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="users-tbody">
+                <tr>
+                  <td>1</td>
+                  <td>Alya</td>
+                  <td>alya@example.com</td>
+                  <td>member</td>
+                  <td class="actions">
+                    <button class="edit">Edit</button
+                    ><button class="del">Hapus</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Raka</td>
+                  <td>raka@example.com</td>
+                  <td>member</td>
+                  <td class="actions">
+                    <button class="edit">Edit</button
+                    ><button class="del">Hapus</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Sita</td>
+                  <td>sita@example.com</td>
+                  <td>admin</td>
+                  <td class="actions">
+                    <button class="edit">Edit</button
+                    ><button class="del">Hapus</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Products -->
+          <div id="section-products" class="card" style="display: none">
+            <h3 style="margin-top: 0">Kelola Produk</h3>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 12px;
+              "
+            >
+              <div style="color: var(--muted)">
+                Tambah, edit, atau hapus produk
+              </div>
+              <button class="btn" onclick="addProduct()">
+                + Tambah Produk
+              </button>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nama Produk</th>
+                  <th>Harga</th>
+                  <th>Stok</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="products-tbody">
+                <tr>
+                  <td>1</td>
+                  <td>Boneka Kucing</td>
+                  <td>Rp 75.000</td>
+                  <td>12</td>
+                  <td class="actions">
+                    <button class="edit">Edit</button
+                    ><button class="del">Hapus</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Makanan Kucing</td>
+                  <td>Rp 45.000</td>
+                  <td>30</td>
+                  <td class="actions">
+                    <button class="edit">Edit</button
+                    ><button class="del">Hapus</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Edit Password -->
+          <div id="section-password" class="card" style="display: none">
+            <h3 style="margin-top: 0">Edit Password</h3>
+            <form
+              id="password-form"
+              onsubmit="event.preventDefault(); changePassword();"
+            >
+              <div class="form-row">
+                <input
+                  id="old-pass"
+                  type="password"
+                  placeholder="Password lama"
+                  required
+                />
+              </div>
+              <div class="form-row">
+                <input
+                  id="new-pass"
+                  type="password"
+                  placeholder="Password baru"
+                  required
+                />
+              </div>
+              <div class="form-row">
+                <input
+                  id="confirm-pass"
+                  type="password"
+                  placeholder="Konfirmasi password baru"
+                  required
+                />
+              </div>
+              <div style="margin-top: 6px">
+                <button class="btn" type="submit">Simpan</button>
+              </div>
+              <div
+                id="pass-msg"
+                style="margin-top: 10px; color: var(--muted)"
+              ></div>
+            </form>
+          </div>
+
+          <!-- Logout -->
+          <div id="section-logout" class="card" style="display: none">
+            <h3 style="margin-top: 0">Logout</h3>
+            <p style="color: var(--muted)">
+              Klik tombol di bawah untuk keluar dari sesi admin.
+            </p>
+            <div style="margin-top: 10px">
+              <button class="btn" onclick="doLogout()">Logout sekarang</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      function show(section) {
+        // update active nav
+        document
+          .querySelectorAll(".nav button")
+          .forEach((b) => b.classList.remove("active"));
+        const map = {
+          users: "nav-users",
+          products: "nav-products",
+          password: "nav-password",
+          logout: "nav-logout",
+        };
+        const navId = map[section] || "nav-users";
+        document.getElementById(navId).classList.add("active");
+
+        // update title
+        const titles = {
+          users: "Data user",
+          products: "Kelola Produk",
+          password: "Edit Password",
+          logout: "Logout",
+        };
+        document.getElementById("page-title").textContent =
+          titles[section] || "Admin";
+
+        // show/hide sections
+        ["users", "products", "password", "logout"].forEach((s) => {
+          const el = document.getElementById("section-" + s);
+          if (!el) return;
+          el.style.display = s === section ? "block" : "none";
+        });
+      }
+
+      function addProduct() {
+        const tbody = document.getElementById("products-tbody");
+        const idx = tbody.children.length + 1;
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${idx}</td><td>Produk Baru</td><td>Rp 0</td><td>0</td><td class="actions"><button class="edit">Edit</button><button class="del">Hapus</button></td>`;
+        tbody.appendChild(row);
+      }
+
+      function changePassword() {
+        const oldp = document.getElementById("old-pass").value;
+        const newp = document.getElementById("new-pass").value;
+        const conf = document.getElementById("confirm-pass").value;
+        const msg = document.getElementById("pass-msg");
+        if (newp !== conf) {
+          msg.style.color = "var(--danger)";
+          msg.textContent = "Password konfirmasi tidak cocok.";
+          return;
+        }
+        // contoh: di sini Anda akan memanggil API untuk mengganti password
+        msg.style.color = "green";
+        msg.textContent = "Password berhasil diperbarui (simulasi).";
+        document.getElementById("password-form").reset();
+      }
+
+      function doLogout() {
+        // simulasi logout
+        if (confirm("Yakin ingin logout?")) {
+          // jika ada backend, lakukan panggilan logout lalu redirect
+          alert("Anda telah logout (simulasi).");
+          // contoh redirect ke halaman login
+          window.location.href = "index.html";
+        }
+      }
+
+      // initial
+      show("users");
+    </script>
+  </body>
+</html>

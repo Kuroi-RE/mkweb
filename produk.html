@@ -32,9 +32,33 @@
         width: 60%;
         background: #ede7f1;
         min-height: 400px;
-        text-align: center;
         color: #000000;
       }
+      #content .produk-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+      }
+      #content .produk-item {
+        background: #ffffff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 10px;
+        width: 200px;
+        text-align: center;
+      }
+      #content .produk-item img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+      #content .produk-item h2 {
+        font-size: 18px;
+        margin: 10px 0 5px 0;
+      }
+
       #r-side {
         float: left;
         width: 20%;
@@ -67,7 +91,27 @@
     <div id="l-side">populer</div>
 
     <div id="content">
-      <img src="assets/images/kucing.jpg" style="width: 50%" />
+      <div>
+        <h1>Produk</h1>
+        <p>Ini adalah halaman produk.</p>
+      </div>
+      <div class="produk-list">
+        <div class="produk-item">
+          <img src="./assets/images/kucing.jpg" width="200" alt="produk">
+          <h2>Produk 1</p>
+          <p>Deskripsi produk 1</p>
+        </div>
+        <div class="produk-item">
+          <img src="./assets/images/kucing.jpg" width="200" alt="produk">
+          <h2>Produk 1</p>
+          <p>Deskripsi produk 1</p>
+        </div>
+        <div class="produk-item">
+          <img src="./assets/images/kucing.jpg" width="200" alt="produk">
+          <h2>Produk 1</p>
+          <p>Deskripsi produk 1</p>
+        </div>
+      </div>
     </div>
 
     <div id="r-side">advertise</div>
