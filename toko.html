@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toko Online</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #header nav {
+        background-color: purple;
+        color: white;
+        padding: 10px;
+      }
+      #header section {
+        color: purple;
+      }
+      #header section ul {
+        justify-content: right;
+        list-style-type: none;
+        padding-right: 10px;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+      }
+      #header section ul li {
+        cursor: pointer;
+      }
+      #header div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+      }
+      #header div img {
+        width: 95%;
+        height: 300px;
+        object-fit: cover;
+      }
+
+      /* Main */
+
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        padding: 30px;
+      }
+
+      #content {
+        width: 70%;
+        height: 500px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      #content > #card {
+        width: 200px;
+        height: 300px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #content > #card h1 {
+        font-size: 20px;
+      }
+
+      #content > #card p {
+        font-size: 14px;
+        color: purple;
+        font-weight: bold;
+      }
+      #content > #card img {
+        width: 100%;
+        height: 150px;
+        border-radius: 8px;
+        object-fit: cover;
+      }
+
+      #advertisement {
+        width: 28%;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <nav>
+        <h1>Toko Online</h1>
+      </nav>
+      <section>
+        <ul>
+          <li>Beranda</li>
+          <li>Produk</li>
+          <li>Member</li>
+          <li>Login</li>
+        </ul>
+      </section>
+      <div>
+        <img src="./assets/images/toko/bg.jpg" alt="background" />
+      </div>
+    </header>
+
+    <main>
+      <section id="content">
+        <div id="card">
+          <img
+            src="./assets/images/toko/couple/couple1.jpg"
+            alt="couple hoodie"
+          />
+          <h1>Couple Hoodie</h1>
+
+          <p>Rp 150.000</p>
+        </div>
+        <div id="card">
+          <img
+            src="./assets/images/toko/couple/couple2.jpg"
+            alt="couple t-shirt"
+          />
+          <h1>Couple T-Shirt</h1>
+
+          <p>Rp 120.000</p>
+        </div>
+        <div id="card">
+          <img
+            src="./assets/images/toko/couple/couple3.png"
+            alt="couple mug set"
+          />
+          <h1>Couple Mug Set</h1>
+
+          <p>Rp 80.000</p>
+        </div>
+        <div id="card">
+          <img
+            src="./assets/images/toko/couple/couple4.jpg"
+            alt="couple tote bag"
+          />
+          <h1>Couple Tote Bag</h1>
+
+          <p>Rp 60.000</p>
+        </div>
+        <div id="card">
+          <img
+            src="./assets/images/toko/couple/couple5.jpg"
+            alt="couple keychain"
+          />
+          <h1>Couple Keychain</h1>
+
+          <p>Rp 25.000</p>
+        </div>
+        <div id="card">
+          <img
+            src="./assets/images/toko/couple/couple1.jpg"
+            alt="couple hoodie"
+          />
+          <h1>Couple Hoodie</h1>
+
+          <p>Rp 150.000</p>
+        </div>
+        <div id="card">
+          <img
+            src="./assets/images/toko/couple/couple2.jpg"
+            alt="couple t-shirt"
+          />
+          <h1>Couple T-Shirt</h1>
+
+          <p>Rp 120.000</p>
+        </div>
+        <div id="card">
+          <img
+            src="./assets/images/toko/couple/couple3.png"
+            alt="couple mug set"
+          />
+          <h1>Couple Mug Set</h1>
+
+          <p>Rp 80.000</p>
+        </div>
+      </section>
+
+      <section id="advertisement">
+        <h1 style="color: purple">Rekomendasi</h1>
+        <div
+          style="
+            background-color: lightgray;
+            border-radius: 12px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 450px;
+            margin-top: 10px;
+          "
+        >
+          <div
+            style="
+              background-color: white;
+              border-radius: 12px;
+              padding: 5px;
+              width: 300px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            "
+          >
+            <img
+              src="./assets/images/toko/couple/couple3.png"
+              style="
+                width: 200px;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 8px;
+              "
+              alt="orang"
+            />
+            <h1>Batik Couple</h1>
+
+            <p>Rp 100.000</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
